@@ -34,9 +34,15 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     // Anko Commons
-    compile "org.jetbrains.anko:anko-commons:$anko_version"
+    api "org.jetbrains.anko:anko-commons:$anko_version"
     // Support-v4 (only Anko Commons)
-    compile "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
+    api "org.jetbrains.anko:anko-support-v4-commons:$anko_version"
+    // Appcompat-v7 (only Anko Commons)
+    api "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
+    api "org.jetbrains.anko:anko-coroutines:$anko_version"
+    // Coroutine listeners for Anko Layouts
+    api "org.jetbrains.anko:anko-sdk25-coroutines:$anko_version"
+    api "org.jetbrains.anko:anko-appcompat-v7-coroutines:$anko_version"
 }
 repositories {
     mavenCentral()

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.kotlin.user.R
 import kotlinx.android.synthetic.main.activity_register.*
+//import org.jetbrains.anko.startActivity
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -12,7 +13,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         mRegisterBtn.setOnClickListener{
-
+          // startActivity<MainActivity>("id" to 5)
         }
     }
 }
+
+
