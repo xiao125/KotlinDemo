@@ -141,6 +141,6 @@
         <item name="android:background">@drawable/btn_common_selector</item>
         <item name="android:padding">@dimen/common_padding_middle</item>
         <item name="android:layout_margin">@dimen/common_margin</item>
-        <item name="android:enabled">false</item>
+        <item name="android:enabled">true</item>
     </style>
 </resources>

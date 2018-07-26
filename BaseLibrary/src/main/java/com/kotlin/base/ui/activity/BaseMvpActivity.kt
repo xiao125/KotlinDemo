@@ -2,6 +2,7 @@ package com.kotlin.base.ui.activity
 
 import com.kotlin.base.presenter.view.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
+import javax.inject.Inject
 
 /**
  *  Activity基类，业务相关
@@ -21,8 +22,8 @@ import com.kotlin.base.presenter.view.BaseView
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    //lateinit var mActivityComponent: ActivityComponent
 
+    @Inject
     lateinit var mPresenter: T
 
 

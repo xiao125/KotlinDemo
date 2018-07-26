@@ -1,5 +1,6 @@
 package com.kotlin.base.data.net
 
+import com.kotlin.base.common.BaseConstant
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,7 +12,7 @@ import java.util.concurrent.TimeUnit
 /**
  *  Retrofit工厂，单例
  */
-class RetrofitFactory {
+class RetrofitFactory private constructor(){
 
     /**
      * companion object 伴生对象 ,以需要使用companion object来声明static变量,伴生对象与单例模式相关
@@ -38,7 +39,7 @@ class RetrofitFactory {
         }
 
         retrofit = Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl(BaseConstant.SERVER_ADDRESS)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(initClient())
