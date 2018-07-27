@@ -1,5 +1,8 @@
 package com.kotlin.base.presenter.view
 
+import com.trello.rxlifecycle.LifecycleProvider
+import javax.inject.Inject
+
 /**
  *  MVP中P层 基类
  *  lateinit 和 lazy 是 Kotlin 中的两种不同的延迟初始化的实现
@@ -8,4 +11,8 @@ package com.kotlin.base.presenter.view
 open class BasePresenter<T:BaseView> {
 
     lateinit var mView:T   //lateinit 则用于只能生命周期流程中进行获取或者初始化的变量
+
+    //Dagger注入，Rx生命周期管理
+    @Inject
+    lateinit var lifecycleProvider: LifecycleProvider<*>
 }

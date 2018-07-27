@@ -21,6 +21,8 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
     @Inject
     lateinit var userService:UserService
 
+
+
     fun register(mobile:String,verifyCode:String,pwd:String){
         /**
          * 业务逻辑 ，接收 Observable.just(true) 发射的数据
@@ -30,6 +32,6 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
                     override fun onNext(t: Boolean) {
                         mView.OnRegisterResult(t)
                     }
-                })
+                },lifecycleProvider)
     }
 }
