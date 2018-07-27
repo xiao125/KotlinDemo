@@ -6,5 +6,4 @@ import com.trello.rxlifecycle.components.support.RxAppCompatActivity
 /**
  *  Activity基类，业务无关
  */
-open class BaseActivity : RxAppCompatActivity() {
-}
+open class BaseActivity : RxAppCompatActivity()

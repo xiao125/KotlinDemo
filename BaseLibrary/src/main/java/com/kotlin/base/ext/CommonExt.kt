@@ -1,5 +1,6 @@
 package com.kotlin.base.ext
 
+import android.view.View
 import com.kotlin.base.rx.BaseSubscriber
 import com.trello.rxlifecycle.LifecycleProvider
 import rx.Observable
@@ -22,3 +23,13 @@ import rx.schedulers.Schedulers
             .subscribeOn(Schedulers.io()) //指定 subscribe() 发生在新的线程
             .subscribe(subscriber)  //subscribe 连接
 }
+
+/*
+    扩展点击事件，参数为方法
+     函数类型 method:() ->Unit
+ */
+fun View.onClick(method:() -> Unit):View{
+    setOnClickListener { method() }
+    return this
+}
+

@@ -1,4 +1,4 @@
-package com.kotlin.base.ui.activity
+package com.kotlin.base.ui.fragment
 
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -15,7 +15,7 @@ import javax.inject.Inject
  *  Activity基类，业务相关
  *  对于可以重写的函数，都需要显示的指明，使用的是open关键字。如果没有，在子类中声明跟父类相同的方法是非法的。
  */
-open abstract class BaseMvpActivity<T:BasePresenter<*>> : BaseActivity(),BaseView {
+ open abstract class BaseMvpFragment<T:BasePresenter<*>> : BaseFragment(),BaseView {
 
     override fun showLoading() {
     }
@@ -48,8 +48,8 @@ open abstract class BaseMvpActivity<T:BasePresenter<*>> : BaseActivity(),BaseVie
     */
    private fun initActivityInjection() {
       mActivityCompiler = DaggerActivityComponent.builder()
-              .appComponent((application as BaseApplication).appComponent)
-              .activityModule(ActivityModule(this))
+              .appComponent((activity.application as BaseApplication).appComponent)
+              .activityModule(ActivityModule(activity))
               .lifecycleProviderModule(LifecycleProviderModule(this))
               .build()
    }

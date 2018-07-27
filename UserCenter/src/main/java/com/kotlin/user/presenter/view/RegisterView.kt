@@ -7,5 +7,5 @@ import com.kotlin.base.presenter.view.BaseView
  */
 interface RegisterView:BaseView {
 
-    fun OnRegisterResult(result:Boolean)
+    fun OnRegisterResult(result:String)
 }

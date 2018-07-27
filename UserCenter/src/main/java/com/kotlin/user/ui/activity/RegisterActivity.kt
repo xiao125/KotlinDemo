@@ -22,31 +22,30 @@ import org.jetbrains.anko.toast
  */
 class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
 
+
     //RegisterView 接口
-    override fun OnRegisterResult(result: Boolean) {
-        toast("注册成功")
+    override fun OnRegisterResult(result: String) {
+        toast(result)
     }
 
     @SuppressLint("MissingSuperCall") //忽略Lint警告
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_tes)
-
-        initInjection()
         mRegisterBtn.setOnClickListener{
             Log.w("TAG","点击了")
             mPresenter.register(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),
                     mPwdEt.text.toString())
         }
     }
-     private fun initInjection(){
-        //DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
-         DaggerUserComponent.builder().activityComponent(mActivityCompiler).userModule(UserModule())
-                 .build().inject(this)
-         mPresenter.mView = this
 
-     }
 
+    override fun injectComponent() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        DaggerUserComponent.builder().activityComponent(mActivityCompiler).userModule(UserModule())
+                .build().inject(this)
+        mPresenter.mView = this
+    }
 }
 
 

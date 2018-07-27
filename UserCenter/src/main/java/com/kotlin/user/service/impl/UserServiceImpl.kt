@@ -2,6 +2,7 @@ package com.kotlin.user.service.impl
 
 import com.kotlin.base.data.protocol.BaseResp
 import com.kotlin.base.rx.BaseException
+import com.kotlin.base.rx.BaseFuncBoolean
 import com.kotlin.user.data.respository.UserRepository
 import rx.Observable
 import rx.functions.Func1
@@ -21,14 +22,7 @@ class UserServiceImpl @Inject constructor() :UserService {
     override fun register(mobile: String, pwd: String, verifyCode: String): Observable<Boolean> {
 
         return repository.register(mobile,pwd,verifyCode)
-                .flatMap(object :Func1<BaseResp<String>,Observable<Boolean>>{
-                    override fun call(t: BaseResp<String>): Observable<Boolean> {
-                       if (t.status !=0){ //判断响应码
-                         return Observable.error(BaseException(t.status,t.message))
-                       }
-                       return Observable.just(true) //just只是简单的原样发射，将数组或Iterable当做单个数据 . 在onNext() 回调中接收
-                    }
-                })
+                .flatMap(BaseFuncBoolean())
     }
 
 
