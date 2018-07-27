@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.kotlin.base.injection.component.ActivityComponent
 import com.kotlin.base.ui.activity.BaseMvpActivity
 import com.kotlin.user.R
 import com.kotlin.user.injection.component.DaggerUserComponent
@@ -34,11 +35,14 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
         initInjection()
         mRegisterBtn.setOnClickListener{
             Log.w("TAG","点击了")
-            mPresenter.register(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),mPwdEt.text.toString())
+            mPresenter.register(mMobileEt.text.toString(),mVerifyCodeEt.text.toString(),
+                    mPwdEt.text.toString())
         }
     }
      private fun initInjection(){
-        DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
+        //DaggerUserComponent.builder().userModule(UserModule()).build().inject(this)
+         DaggerUserComponent.builder().activityComponent(mActivityCompiler).userModule(UserModule())
+                 .build().inject(this)
          mPresenter.mView = this
 
      }

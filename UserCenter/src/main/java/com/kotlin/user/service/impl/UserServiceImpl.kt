@@ -23,10 +23,10 @@ class UserServiceImpl @Inject constructor() :UserService {
         return repository.register(mobile,pwd,verifyCode)
                 .flatMap(object :Func1<BaseResp<String>,Observable<Boolean>>{
                     override fun call(t: BaseResp<String>): Observable<Boolean> {
-                       if (t.status !=0){
+                       if (t.status !=0){ //判断响应码
                          return Observable.error(BaseException(t.status,t.message))
                        }
-                       return Observable.just(true)
+                       return Observable.just(true) //just只是简单的原样发射，将数组或Iterable当做单个数据 . 在onNext() 回调中接收
                     }
                 })
     }

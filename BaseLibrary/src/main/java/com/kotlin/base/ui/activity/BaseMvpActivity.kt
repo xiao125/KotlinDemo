@@ -1,5 +1,11 @@
 package com.kotlin.base.ui.activity
 
+import android.os.Bundle
+import android.os.PersistableBundle
+import com.kotlin.base.common.BaseApplication
+import com.kotlin.base.injection.component.ActivityComponent
+import com.kotlin.base.injection.component.DaggerActivityComponent
+import com.kotlin.base.injection.module.ActivityModule
 import com.kotlin.base.presenter.view.BasePresenter
 import com.kotlin.base.presenter.view.BaseView
 import javax.inject.Inject
@@ -11,20 +17,32 @@ import javax.inject.Inject
  open class BaseMvpActivity<T:BasePresenter<*>> : BaseActivity(),BaseView {
 
     override fun showLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideLoading() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onError(text: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-
+   //Presenter泛型，Dagger注入
     @Inject
     lateinit var mPresenter: T
 
+    lateinit var  mActivityCompiler:ActivityComponent
+
+   override fun onCreate(savedInstanceState: Bundle?) {
+      super.onCreate(savedInstanceState)
+      initActivityInjection()
+   }
+
+   /*
+       初始Activity Component
+    */
+   private fun initActivityInjection() {
+      mActivityCompiler = DaggerActivityComponent.builder().appComponent((application as BaseApplication).appComponent)
+              .activityModule(ActivityModule(this))
+              .build()
+   }
 
 }

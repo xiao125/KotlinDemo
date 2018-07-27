@@ -11,10 +11,12 @@ import rx.schedulers.Schedulers
 
 
 /**
- *  扩展Observable执行
+ *  扩展Observable执行 （被观察者）
+ *
+ *   Scheduler : 线程控制器
  */
  fun <T> Observable<T>.execute(subscriber: BaseSubscriber<T>){
-    this.observeOn(AndroidSchedulers.mainThread())
-            .subscribeOn(Schedulers.io())
-            .subscribe(subscriber)
+    this.observeOn(AndroidSchedulers.mainThread()) //指定 Subscriber 的回调发生在主线程
+            .subscribeOn(Schedulers.io()) //指定 subscribe() 发生在新的线程
+            .subscribe(subscriber)  //subscribe 连接
 }
