@@ -12,7 +12,7 @@ import com.kotlin.base.presenter.view.BaseView
 import javax.inject.Inject
 
 /**
- *  Activity基类，业务相关
+ *  Fragment基类，业务相关
  *  对于可以重写的函数，都需要显示的指明，使用的是open关键字。如果没有，在子类中声明跟父类相同的方法是非法的。
  */
  open abstract class BaseMvpFragment<T:BasePresenter<*>> : BaseFragment(),BaseView {

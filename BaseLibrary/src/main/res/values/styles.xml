@@ -16,14 +16,14 @@
     </style>
 
     <!-- 多状态视图样式-->
-   <!-- <style name="MultiStateStyle">
+    <style name="MultiStateStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
         <item name="msv_loadingView">@layout/layout_state_loading</item>
         <item name="msv_emptyView">@layout/layout_state_empty</item>
         <item name="msv_errorView">@layout/layout_state_error</item>
         <item name="msv_viewState">loading</item>
-    </style>-->
+    </style>
 
     <!-- 加载弹框样式 -->
     <style name="LightDialog" parent="@android:style/Theme.Dialog">
@@ -48,7 +48,7 @@
     </style>
 
     <!-- 搜索输入框样式-->
-    <!--<style name="SearchHeaderEtStyle">
+    <style name="SearchHeaderEtStyle">
         <item name="android:textColor">@color/common_white</item>
         <item name="android:textColorHint">@color/common_white</item>
         <item name="android:background">@drawable/home_header_corner_bg</item>
@@ -65,7 +65,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:maxLines">1</item>
-    </style>-->
+    </style>
     <!-- 带搜索的Header样式 -->
     <style name="SearchHeaderStyle">
         <item name="android:gravity">center_vertical</item>
@@ -117,10 +117,10 @@
         <item name="android:layout_marginBottom">@dimen/common_margin_middle</item>
     </style>
     <!-- 底部出入动画 -->
-   <!-- <style name="AnimBottom" parent="@android:style/Animation">
+    <style name="AnimBottom" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
-    </style>-->
+    </style>
     <!-- 自定义标签字体样式 -->
     <style name="LabelTitleTextStyle">
         <item name="android:textSize">@dimen/text_middle_size</item>

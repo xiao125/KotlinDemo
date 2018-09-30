@@ -21,19 +21,20 @@ class RegisterPresenter @Inject constructor() : BasePresenter<RegisterView>() {
     @Inject
     lateinit var userService:UserService
 
-
-
     fun register(mobile:String,verifyCode:String,pwd:String){
+        if(!checkMetWork()){
+            return
+        }
+        mView.showLoading()
         /**
          * 业务逻辑 ，接收 Observable.just(true) 发射的数据
          */
-        userService.register(mobile,verifyCode,pwd)
-                .execute(object :BaseSubscriber<Boolean>(){
+        userService.register(mobile,pwd,verifyCode)
+                .execute(object :BaseSubscriber<Boolean>(mView){
                     override fun onNext(t: Boolean) {
                         if(t){
                             mView.OnRegisterResult("注册成功")
                         }
-
                     }
                 },lifecycleProvider)
     }

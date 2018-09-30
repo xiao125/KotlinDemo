@@ -10,6 +10,10 @@ import javax.inject.Inject
 
 /**
  * 用户模块业务实现类
+ *  @Inject  标记需要注入的属性
+ *
+ *  flatMap操作符将Observable发射的数据集合变换为Observable集合，然后将这些Observable发射的数据
+      平坦化地放进一个单独的 Observable
  */
 class UserServiceImpl @Inject constructor() :UserService {
 

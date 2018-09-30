@@ -10,6 +10,8 @@ import dagger.Component
 
 /**
  * Application 基类
+ *
+ * lateinit 只用于变量 var，  lateinit 则用于只能生命周期流程中进行获取或者初始化的变量
  */
  open class BaseApplication: Application() {
 
@@ -20,14 +22,21 @@ import dagger.Component
 
         initAppInjection()
         context = this
+
+        //ARouter初始化
+//        ARouter.openLog()    // 打印日志
+//        ARouter.openDebug()
+//        ARouter.init(this)
     }
 
     private fun initAppInjection(){
-        DaggerAppComponent.builder().appModule(AppModule(this)).build()
+
+        appComponent =  DaggerAppComponent.builder().appModule(AppModule(this)).build()
+
     }
 
     /**
-     *全局对象
+     *  全局伴生对象
      */
     companion object {
         lateinit var context: Context
