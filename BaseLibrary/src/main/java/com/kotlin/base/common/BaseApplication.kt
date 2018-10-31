@@ -7,6 +7,7 @@ import com.kotlin.base.injection.component.DaggerActivityComponent
 import com.kotlin.base.injection.component.DaggerAppComponent
 import com.kotlin.base.injection.module.AppModule
 import dagger.Component
+import dagger.internal.DaggerCollections
 
 /**
  * Application 基类
@@ -30,7 +31,6 @@ import dagger.Component
     }
 
     private fun initAppInjection(){
-
         appComponent =  DaggerAppComponent.builder().appModule(AppModule(this)).build()
 
     }

@@ -43,7 +43,8 @@ class LoginActivity :BaseMvpActivity<LoginPresenter>(),LoginView,View.OnClickLis
      * Dagger 注册
      */
     override fun injectComponent() {
-        DaggerUserComponent.builder().activityComponent(mActivityComponent).userModule(UserModule()).build().inject(this)
+        DaggerUserComponent.builder().activityComponent(mActivityComponent).userModule(UserModule())
+                .build().inject(this)
         mPresenter.mView = this
     }
 
@@ -53,6 +54,7 @@ class LoginActivity :BaseMvpActivity<LoginPresenter>(),LoginView,View.OnClickLis
     override fun onClick(view: View) {
         when(view.id){
             R.id.mRightTv ->{
+                //跳转Activity
                 startActivity<RegisterActivity>()
             }
 
@@ -61,7 +63,7 @@ class LoginActivity :BaseMvpActivity<LoginPresenter>(),LoginView,View.OnClickLis
             }
 
             R.id.mForgetPwdTv ->{
-
+                startActivity<ForgetPwdActivity>()
             }
 
         }
@@ -81,6 +83,7 @@ class LoginActivity :BaseMvpActivity<LoginPresenter>(),LoginView,View.OnClickLis
      */
     override fun onLoginResult(result: UserInfo){
         toast("登录成功")
+
         finish()
     }
 

@@ -13,6 +13,7 @@ class AppManager private  constructor(){
 
     private  val  activityStack : Stack<Activity> = Stack()
 
+    //单例
     companion object {
         val instance:AppManager by lazy { AppManager() }
     }

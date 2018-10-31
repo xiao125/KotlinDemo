@@ -10,6 +10,8 @@ import org.jetbrains.anko.find
 
 /**
  *  加载对话框封装
+ *
+ *   private constructor : 使用这个语法来把构造函数修改为 private
  */
 class ProgressLoading private constructor(context: Context,theme:Int): Dialog(context,theme) {
 

@@ -11,6 +11,7 @@ import com.kotlin.user.injection.component.DaggerUserComponent
 import com.kotlin.user.injection.module.UserModule
 import com.kotlin.user.presenter.RegisterPresenter
 import com.kotlin.user.presenter.view.RegisterView
+import dagger.internal.DaggerCollections
 import kotlinx.android.synthetic.main.activity_register.*
 import org.jetbrains.anko.toast
 
@@ -45,7 +46,8 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
      *  Dagger注册
      */
     override fun injectComponent() {
-        DaggerUserComponent.builder().activityComponent(mActivityCompiler).userModule(UserModule())
+
+        DaggerUserComponent.builder().activityComponent(mActivityComponent).userModule(UserModule())
                 .build().inject(this)
         mPresenter.mView = this
     }
@@ -60,6 +62,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
      */
     override fun onClick(view: View) {
         when(view.id){
+
              R.id.mVerifyCodeBtn ->{
                 mVerifyCodeBtn.requestSendVerifyNumber()
                 toast("发送验证成功")

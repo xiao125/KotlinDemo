@@ -62,6 +62,9 @@ fun View.onClick(method:() ->Unit):View{
 
 /**
  * 扩展Button可用性
+ * lambda表达式 : 定义了一个方法，我们必须使用大括号包围，然后在箭
+  头的左边指定参数，在箭头的右边返回函数执行的结果。如果左边的参数没有使用
+   到，我们甚至可以省略左边的参数
  */
 fun Button.enable(et:EditText,method: () -> Boolean){
     val  btn = this

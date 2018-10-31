@@ -4,6 +4,7 @@ package com.kotlin.base.common
  * 基础常量
  *
  * "object"修饰静态类，或"companion object"修饰静态方法，都可以使用类名.方法名的形式调用
+ *
  * const val 可见性为public final static，可以直接访问。
  * val 可见性为private final static，并且val 会生成方法getNormalObject() ，通过方法调用访问。
  */
