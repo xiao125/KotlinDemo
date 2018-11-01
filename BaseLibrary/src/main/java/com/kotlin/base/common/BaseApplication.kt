@@ -20,7 +20,6 @@ import dagger.internal.DaggerCollections
 
     override fun onCreate() {
         super.onCreate()
-
         initAppInjection()
         context = this
 
