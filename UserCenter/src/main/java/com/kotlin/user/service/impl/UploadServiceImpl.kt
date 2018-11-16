@@ -3,7 +3,6 @@ package com.kotlin.user.service.impl
 import android.text.style.UpdateAppearance
 import com.kotlin.base.ext.convert
 import com.kotlin.user.data.respository.UploadRepository
-import com.kotlin.user.data.respository.UserRepository
 import com.kotlin.user.service.UploadService
 import rx.Observable
 import javax.inject.Inject

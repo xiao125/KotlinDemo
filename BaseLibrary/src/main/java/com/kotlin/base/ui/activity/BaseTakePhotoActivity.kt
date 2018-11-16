@@ -50,10 +50,7 @@ abstract open class BaseTakePhotoActivity<T:BasePresenter<*>> : BaseActivity(),B
         //初始化 TakePhoto
         mTakePhoto = TakePhotoImpl(this,this)
         mTakePhoto.onCreate(savedInstanceState)
-
         mLoadingDialog = ProgressLoading.create(this)
-
-
     }
 
     /**
@@ -101,16 +98,18 @@ abstract open class BaseTakePhotoActivity<T:BasePresenter<*>> : BaseActivity(),B
         AlertView("选择图片",null,"取消",null,
                 arrayOf("拍照","相册"),this,
                 AlertView.Style.ActionSheet, OnItemClickListener{o,position ->
-           //启用图片压缩
-           mTakePhoto.onEnableCompress(CompressConfig.ofDefaultConfig(),false)
-           when(position){
-               0 ->{
-                   createTempFile()
-                   mTakePhoto.onPickFromCapture(Uri.fromFile(mTempFile))
-               }
-               1 -> mTakePhoto.onPickFromGallery()
-           }
-        }).show()
+                   //启用图片压缩
+                   mTakePhoto.onEnableCompress(CompressConfig.ofDefaultConfig(),false)
+                   when(position){
+                       0 ->{
+                           createTempFile()
+                           mTakePhoto.onPickFromCapture(Uri.fromFile(mTempFile))
+                           Log.e("ssss",mTempFile.toString())
+                       }
+                       1 -> mTakePhoto.onPickFromGallery()
+                   }
+                }
+        ).show()
     }
 
     /**
@@ -151,7 +150,7 @@ abstract open class BaseTakePhotoActivity<T:BasePresenter<*>> : BaseActivity(),B
      */
     fun createTempFile(){
         val tempFileName = "${DateUtils.curTime}.png"
-        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())){ //是否挂载临时文件
             this.mTempFile = File(Environment.getExternalStorageDirectory(),tempFileName)
             return
         }

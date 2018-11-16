@@ -108,7 +108,9 @@ class UserInfoActivity :BaseTakePhotoActivity<UserInfoPresenter>(),UserInfoView 
      */
     override fun takeSuccess(result: TResult?) {
         mLocalFileUrl = result?.image?.compressPath
+        Log.e("ttttt",mLocalFileUrl)
         mPresenter.getUploadToken()
+       // GlideUtils.loadImage(this@UserInfoActivity,mLocalFileUrl!!,mUserIconIv)
     }
 
     /**
