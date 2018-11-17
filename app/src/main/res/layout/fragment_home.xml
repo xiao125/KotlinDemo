@@ -15,10 +15,10 @@
             style="@style/WrapWrap"
             android:src="@drawable/icon_scan"/>
     </LinearLayout>
-    <!-- <com.youth.banner.Banner
+     <com.youth.banner.Banner
              android:id="@+id/mHomeBanner"
              android:layout_width="match_parent"
-             android:layout_height="150dp"/>-->
+             android:layout_height="150dp"/>
     <!-- <com.kotlin.message.widgets.NewsFlipperView
              android:id="@+id/mNewsFlipperView"
              style="@style/MatchWrap"

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.kotlin.base.ext.onClick
 import com.kotlin.base.ui.fragment.BaseFragment
+import com.kotlin.base.widgets.BannerImageLoader
 import com.kotlin.mall.R
 import com.kotlin.mall.R.id.mSearchEt
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -50,7 +51,8 @@ class HomeFragment : BaseFragment(){
      * 初始化Banner
      */
     private fun initBanner(){
-
+        mHomeBanner.setImageLoader(BannerImageLoader())
+        //mHomeBanner.setImages("")
     }
 
     /**
