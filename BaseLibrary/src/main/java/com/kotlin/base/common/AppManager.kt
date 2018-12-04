@@ -1,6 +1,4 @@
 package com.kotlin.base.common
-
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ActivityManager
 import android.content.Context
@@ -30,6 +28,7 @@ class AppManager private  constructor(){
      */
 
     fun finishActivity(activity: Activity){
+        activity.finish()
         activityStack.remove(activity)
     }
 
@@ -53,12 +52,13 @@ class AppManager private  constructor(){
     }
 
 
-     /**
+
+    /**
      * 退出应用程序
      */
     fun exitApp(context: Context){
         finishAllActivity()
-        val activityManager = context.getSystemService(Context.ACCOUNT_SERVICE) as ActivityManager
+        val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         activityManager.killBackgroundProcesses(context.packageName)
         System.exit(0)
     }

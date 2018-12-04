@@ -36,6 +36,8 @@ dependencies {
     if(isUserModule.toBoolean()){
         implementation project(':UserCenter')
     }
+    implementation project(':messagecenter')
+    implementation 'com.android.support:cardview-v7:27.1.1'
 }
 repositories {
     mavenCentral()
