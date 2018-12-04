@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.kotlin.base.ext.loadUrl
 import com.kotlin.base.ext.onClick
 import com.kotlin.base.ui.fragment.BaseFragment
+import com.kotlin.base.utils.AppPrefsUtils
 import com.kotlin.mall.R
+import com.kotlin.provider.common.ProviderConstant
+import com.kotlin.provider.common.isLogined
 import kotlinx.android.synthetic.main.fragment_me.*
 
 /**
@@ -41,7 +45,6 @@ class MeFragment :BaseFragment(),View.OnClickListener {
         mSettingTv.onClick(this)
     }
 
-
     override fun onStart() {
         super.onStart()
         loadData()
@@ -52,6 +55,16 @@ class MeFragment :BaseFragment(),View.OnClickListener {
      */
     private fun loadData() {
 
+        if(isLogined()){
+            val userIcon = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_ICON)
+            if(userIcon.isNotEmpty()){
+                mUserIconIv.loadUrl(userIcon)
+            }
+            mUserNameTv.text = AppPrefsUtils.getString(ProviderConstant.KEY_SP_USER_NAME)
+        }else{
+            mUserIconIv.setImageResource(R.drawable.icon_default_user)
+            mUserNameTv.text = getString(R.string.un_login_text)
+        }
 
     }
 

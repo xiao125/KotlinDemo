@@ -80,6 +80,7 @@ class MainActivity : BaseActivity() {
             }
         })
 
+        mBottomNavBar.checkCartBadge(0)
         mBottomNavBar.checkMsgBadge(false)
     }
 
