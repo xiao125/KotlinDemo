@@ -55,6 +55,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView,View.
     //注册回调
     override fun OnRegisterResult(result: String) {
         toast(result)
+        finish()
     }
 
     /**
